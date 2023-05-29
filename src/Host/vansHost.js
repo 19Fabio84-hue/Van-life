@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link  } from 'react-router-dom'
-import data from '/Users/UTENTE/Desktop/Scrimba/React/ReactRouter/src/server'
+import data from '../server'
 export default function VansHost(){
     return(
         <div className='vanshost'>
