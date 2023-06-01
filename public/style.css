@@ -178,11 +178,22 @@ cursor: pointer;
     display: flex;
     flex-direction: column;
 }
+
 .flex-home{
     margin:auto auto;
     text-align: center;
     color: #FFF;
     width: 40%;
+}
+@media(max-width:1400px){
+    .flex-home{
+        width: 60%;
+    }
+}
+@media(max-width:800px){
+    .flex-home{
+        width: 80%;
+    }
 }
 .flex-home > h1 {
    

@@ -7,11 +7,13 @@ export default function Header(){
     const {userActive , setUserActive} = useContext(Context)
     const navigate = useNavigate()
     const [ profileHover , setProfileHover] = useState(false)
-    let logout = localStorage.getItem('logout' , false)
+    let logout = localStorage.getItem('logout' , false) 
+    let username = localStorage.getItem('username')
     function logOut(){
         setUserActive('')
         localStorage.removeItem('logout')
         localStorage.removeItem('json')
+        localStorage.removeItem('username')
         navigate('/')
     }
     function handlelogOut(){
@@ -44,15 +46,16 @@ export default function Header(){
                <NavLink className={({isActive}) => isActive ? 'styles' : null} to='/about'>About</NavLink>
                <NavLink className={({isActive}) => isActive ? 'styles' : null} to='/vans'>Vans</NavLink>               
               
-                {userActive === '' ? <NavLink onMouseEnter={()=>setProfileHover(true)} onMouseLeave={()=>setProfileHover(false)}   className={({isActive}) => isActive ? 'styles' : null}>
+                {userActive === '' ? <NavLink 
+                                onMouseEnter={()=>setProfileHover(true)} onMouseLeave={()=>setProfileHover(false)}   className={({isActive}) => isActive ? 'styles' : null}>
                                         <img  className='login' src='../images/utente.png' alt='immaggine login'/>
                                         {profileHover && <div className='handle-log'> {handlelogOut()} </div>}
                                      </NavLink>   
                 :<div className='logout-section' onMouseEnter={()=>setProfileHover(true)} onMouseLeave={()=>setProfileHover(false)} >
                      <p    onMouseEnter={()=>setProfileHover(true)} onMouseLeave={()=>setProfileHover(false)}
                            className='username' >
-                       {userActive}</p>
-                           {profileHover && <div onMouseEnter={()=>setProfileHover(true)} onMouseLeave={()=>setProfileHover(false)} className='handle-log-out'> {handlelogOut()} </div>}
+                       {username}</p>
+                           {profileHover && logout  && <div onMouseEnter={()=>setProfileHover(true)} onMouseLeave={()=>setProfileHover(false)} className='handle-log-out'> {handlelogOut()} </div>}
                 </div>
                     }
                           

@@ -25,6 +25,7 @@ export default function Login(){
             setUserActive(findUtent.username)
             localStorage.setItem("json" , true)
             localStorage.setItem('logout' , true)
+            localStorage.setItem('username' , findUtent.username)
             setError('')
             navigate(`${location.state.return}`)
         }else {
@@ -41,8 +42,15 @@ export default function Login(){
         setUserActive(newUsers.username)
         localStorage.setItem('json' , true)
         localStorage.removeItem('logout')
+        localStorage.setItem('username' , newUsers.username)
         navigate(`${location.state.return}`)
     }
+    window.addEventListener('beforeunload', function() {
+        setUserActive('')
+        localStorage.removeItem('logout')
+        localStorage.removeItem('json')
+        localStorage.removeItem('username')
+      });
     return(
         <div className='login-ctn'>
             { location.state ? <h3>{location.state.message}</h3> : <p></p> }
