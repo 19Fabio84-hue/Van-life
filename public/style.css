@@ -130,7 +130,7 @@ a.styles {
 .handle-log{
     position: absolute;
     bottom: -22px;
-    left: -22px;
+    left: -20px;
     padding-top: 8px;
     
 }
@@ -182,6 +182,7 @@ cursor: pointer;
     margin:auto auto;
     text-align: center;
     color: #FFF;
+    width: 40%;
 }
 .flex-home > h1 {
    
