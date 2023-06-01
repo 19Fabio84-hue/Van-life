@@ -13,6 +13,7 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 nav > div{
     width: 200px;
@@ -23,6 +24,54 @@ nav > div{
 .logo{
     width: 220px;
     height: 80px;
+}
+.link-ctn-small{
+    position: absolute;
+    right: -200px;
+    z-index: 10;
+   display: flex;
+   flex-direction: column;
+   display: none;
+}
+.menu-small{
+    font-size: 30px;
+    color: rgb(10, 10, 10);
+    cursor: pointer;
+}
+.menu-small-hover{
+    color: rgb(10, 10, 10);
+    background-color:#FFF7ED ;
+    border-top: 1px solid rgb(10, 10, 10,.5);
+    border-left: 1px solid rgb(10, 10, 10,.5);
+    border-right: 1px solid rgb(10, 10, 10,.5);
+    width: 25px;
+    padding: 0 6px 0 5px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    position: relative;
+    z-index: 500;
+}
+.flex-ctn-small{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: -99px;
+    left: -25px;
+    z-index: 5;
+    padding: 12px 20px 5px 20px;
+    background-color: #FFF7ED;
+    border: 1px solid rgb(10, 10, 10,.5);
+    border-radius: 3px;
+}
+.flex-ctn-small > a{
+    text-decoration: none;
+    color: rgb(6, 6, 6);
+    z-index: 10;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+.flex-ctn-small > a:hover{
+    text-decoration:underline ;
 }
 .link-ctn > a{
     font-size: 1.2rem;
@@ -41,7 +90,15 @@ a.styles {
     text-decoration:underline;
     transform: scale(1.2);
   }
-
+@media(max-width:740px){
+    .link-ctn-small{
+        display: block;
+    }.link-ctn{
+        display:none;
+    }.login{
+        border-radius: 50px;
+    }
+}
   /* HOME */
 .home-ctn{
     background-image: url(./images/image53.png);
@@ -131,17 +188,25 @@ color: rgb(187, 189, 190);}
 }
 
 /* VANS */
+.vans-flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
 .option-van{
     display: flex;
     align-items: center;
     justify-content: space-around;
+    width: 70%;
 }
 .option-p{
     background-color: #ffddb4;
-    padding: 5px 25px;
+    padding: 0.8em 2.5em;
     border-radius: 5px;
     border: none;
     color: #252525;
+    cursor : pointer;
+    font-size: 1rem;
 }
 .link-simple:hover , .link-simple.selected{
     background: #E17654;
@@ -167,6 +232,29 @@ color: rgb(187, 189, 190);}
     display: grid;
     grid-template: auto / 1fr 1fr 1fr;
     justify-items: center;
+}
+@media(max-width:1100px){
+    .vans-flex{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    .vans-ctn{
+        grid-template: auto / 1fr 1fr;
+    }.explre-vans{
+        text-align: center;
+    }.option-van{width: 100%;}
+}
+@media(max-width:740px){
+    .vans-ctn{
+        grid-template : auto / 1fr
+    }.option-p{
+      padding: 0.5em 1em;
+      margin-top: 1.5em;
+    }.option-clear{
+        align-self: center;
+        padding-top: 1em ;    
+    }
 }
 .img-vans{
     width: 350px;
@@ -227,14 +315,17 @@ i{
     text-align: center;
 }
 .login-title{
-    font-size: 3rem;
+    font-size: 2.8rem;
 }
+
 .input-email , .input-password{
     width: 100%;
     height: 40px;
     border-radius: 5px;
     border: 1px solid rgb(156, 154, 154);
 }
+
+
 .input-email:focus{
     outline: none;
 }
@@ -252,7 +343,35 @@ i{
     font-size: 1.2rem;
     cursor: pointer;
 }
-
+@media(max-width:1400px){
+    .login-ctn{
+        width: 50%;
+    }.login-title{
+        font-size: 2.3rem;
+    }.input-email , .input-password{
+        width: 80%;
+    }.login-btn{
+        width: 80%;
+    }
+}
+@media(max-width:750px){
+    .login-ctn{
+        width: 60%;
+    }.login-title{
+        font-size: 1.8rem;
+    }.input-email , .input-password{
+        width: 80%;
+    }.login-btn{
+        width: 80%;
+    }
+}
+@media(max-width:620px){
+    .input-email , .input-password{
+        width: 100%;
+    }.login-btn{
+        width: 100%;
+    }
+}
  /* VANDETAIL */
  .linkToVan{
     margin-left: 2em;

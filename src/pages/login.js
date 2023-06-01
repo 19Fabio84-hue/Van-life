@@ -1,4 +1,4 @@
-import React from 'react'
+import React , { useState } from 'react'
 import { Link , useLocation , useNavigate } from 'react-router-dom'
 
 export  function action(){
@@ -8,10 +8,10 @@ export  function action(){
 
 export default function Login(){
 
-    const [loginData , setLoginData] = React.useState({email:'' , password:''})
+    const [loginData , setLoginData] = useState({email:'' , password:''})
     const location = useLocation()
-    const [error , setError] = React.useState('Utent not find!')
-    const [message ,setMessage] = React.useState('')
+    const [error , setError] = useState('Utent not find!')
+    const [message ,setMessage] = useState('')
     const navigate = useNavigate()
 
     function handleChange(event){
