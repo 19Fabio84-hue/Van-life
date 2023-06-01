@@ -1,7 +1,8 @@
-import React from 'react'
-import data from '../server'
+import React , {useContext} from 'react'
+import { Context } from '../context'
 import { Link , useSearchParams } from 'react-router-dom'
 export default function Vans(){
+   const { data } = useContext(Context)
   let [searchParams , SetSearchParams] = useSearchParams()
      const typeFilter = searchParams.get('type')
      const displayedVans = typeFilter ? data.filter(van => van.type === typeFilter) : data

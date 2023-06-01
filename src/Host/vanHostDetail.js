@@ -1,7 +1,9 @@
-import React from 'react'
-import data from '../server'
+import React , {useContext} from 'react'
+import { Context } from '../context'
 import { useParams } from 'react-router-dom'
+
 export default function VanHostDetail(){
+    const { data } = useContext(Context)
    const params = useParams()
    const selectedVan = data.filter(x => {return x.id === params.id})
     return (

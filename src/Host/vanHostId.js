@@ -1,8 +1,9 @@
-import React from 'react'
+import React , {useContext} from 'react'
+import { Context } from '../context'
 import {Link , NavLink , useParams , Outlet } from 'react-router-dom'
-import data from '/Users/UTENTE/Desktop/Scrimba/React/ReactRouter/src/server'
 
 export default function VanHostId(){
+  const { data } = useContext(Context)
     const styles = {color : 'red'}
     const params = useParams()
     const selectedVan = data.filter(x => {return x.id === params.id })

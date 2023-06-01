@@ -2,11 +2,6 @@ import React , { useState , useContext , useEffect } from 'react'
 import { Link , useLocation , useNavigate } from 'react-router-dom'
 import { Context } from '../context'
 
-export  function action(){
-    console.log('action function pass test!')
-}
-
-
 export default function Login(){
 
     const {users , setUsers , setUserActive } = useContext(Context)

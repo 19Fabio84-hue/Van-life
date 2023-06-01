@@ -1,6 +1,5 @@
 import React from 'react'
 import { Routes , Route  } from 'react-router-dom'
-import './server'
 import AuthRequired from './component/authRequired'
 import Layout from './component/layout'
 import Home from './pages/home'
