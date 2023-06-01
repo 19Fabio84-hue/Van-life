@@ -55,8 +55,20 @@ nav > div{
     display: flex;
     flex-direction: column;
     position: absolute;
-    bottom: -99px;
+    bottom: -96px;
     left: -25px;
+    z-index: 5;
+    padding: 12px 20px 5px 20px;
+    background-color: #FFF7ED;
+    border: 1px solid rgb(10, 10, 10,.5);
+    border-radius: 3px;
+}
+.flex-ctn-small-logout{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: -122px;
+    left: -32px;
     z-index: 5;
     padding: 12px 20px 5px 20px;
     background-color: #FFF7ED;
@@ -70,19 +82,35 @@ nav > div{
     font-size: 1.2rem;
     margin-bottom: 5px;
 }
+.flex-ctn-small-logout > a{
+    text-decoration: none;
+    color: rgb(6, 6, 6);
+    z-index: 10;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
 .flex-ctn-small > a:hover{
     text-decoration:underline ;
 }
-.link-ctn > a{
+.flex-ctn-small-logout > a:hover{
+    text-decoration:underline ;
+}
+.link-ctn{
+    width: 30%;
+    position: relative;
+}
+.link-ctn > a {
     font-size: 1.2rem;
     text-decoration: none;
-    margin-right: 2em;
+    width: 23%;
+    cursor: pointer;
     
 }
 
 .link-ctn > a:hover{
     text-decoration: underline;
     font-weight: bold;
+    
 }
 a.styles {
     font-weight: bold;
@@ -98,6 +126,47 @@ a.styles {
     }.login{
         border-radius: 50px;
     }
+}
+.handle-log{
+    position: absolute;
+    bottom: -22px;
+    left: -22px;
+    padding-top: 8px;
+    
+}
+.log-in-link{
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 5px 8px;
+    background-color: orange;
+    border-radius: 15px;
+    color: #FFF;
+}
+.log-out-link{
+    font-size: 1.2rem;
+    text-decoration: none;
+    padding: 5px 8px;
+    background-color: orange;
+    border-radius: 15px;
+    color: #FFF;
+    margin-top: 55px;
+}
+.logout-section{
+    position: relative;
+    width: 25%;
+}
+.handle-log-out{
+    position: absolute;
+    bottom: -26px;
+    left: -22px;
+    padding-top: 8px;
+}
+.username{
+font-size: 1.2rem;
+text-transform: capitalize;
+ color: #E17654;
+margin: 0;
+cursor: pointer;
 }
   /* HOME */
 .home-ctn{
@@ -157,6 +226,12 @@ color: rgb(187, 189, 190);}
 .about-ctn > img{
     width: 100%;
     height: 350px;
+   }
+   @media(min-width:1500px){
+    .about-ctn > img{
+        width: 100%;
+        height: 650px;
+       }
    }
 .p-ctn > h1{
     font-size: 2.5rem;
@@ -232,6 +307,7 @@ color: rgb(187, 189, 190);}
     display: grid;
     grid-template: auto / 1fr 1fr 1fr;
     justify-items: center;
+    margin-bottom: 10em;
 }
 @media(max-width:1100px){
     .vans-flex{

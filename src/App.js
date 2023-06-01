@@ -6,7 +6,7 @@ import Layout from './component/layout'
 import Home from './pages/home'
 import About from './pages/about'
 import Vans from './pages/vans'
-import Login , {action as loginAction}from './pages/login'
+import Login from './pages/login'
 import VanDetail from './pages/vanDetail'
 import Host from './Host/host'
 import Dashboard from './Host/dashboard'
@@ -29,7 +29,7 @@ export default function App(){
               <Route index element={<Home />}/>
               <Route path="about" element={ <About />} />
               <Route path='vans' element={<Vans /> }/>
-              <Route path='login' action={loginAction} element={<Login /> }/>
+              <Route path='login' element={<Login /> }/>
               <Route path='vans/:id' element={ <VanDetail />}/>
               <Route element={<AuthRequired />}>
                <Route path='host' element={<Host />}>

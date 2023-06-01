@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link , NavLink , useParams , Outlet } from 'react-router-dom'
-import data from '../server'
+import data from '/Users/UTENTE/Desktop/Scrimba/React/ReactRouter/src/server'
 
 export default function VanHostId(){
     const styles = {color : 'red'}

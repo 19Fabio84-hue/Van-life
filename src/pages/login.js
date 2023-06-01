@@ -1,5 +1,6 @@
-import React , { useState } from 'react'
+import React , { useState , useContext , useEffect } from 'react'
 import { Link , useLocation , useNavigate } from 'react-router-dom'
+import { Context } from '../context'
 
 export  function action(){
     console.log('action function pass test!')
@@ -8,44 +9,64 @@ export  function action(){
 
 export default function Login(){
 
-    const [loginData , setLoginData] = useState({email:'' , password:''})
+    const {users , setUsers , setUserActive } = useContext(Context)
+  
     const location = useLocation()
+    const navigate = useNavigate()
+    const [ email , setEmail] = useState('')
+    const [ password , setPassword] = useState('')
+    const [name , setName] = useState('')
+    const [ createOne , setCreateOne] = useState(false)
     const [error , setError] = useState('Utent not find!')
     const [message ,setMessage] = useState('')
-    const navigate = useNavigate()
-
-    function handleChange(event){
-        const {name , value} = event.target
-        setLoginData(prev => {
-            return {...prev , [name ] : value}
-        })
-    }
+    
+    useEffect(()=>{
+        localStorage.setItem('users', JSON.stringify(users))
+    },[users])
 
     function submitData(){
-        if(loginData.email === 'piancatellif@gmail.com' && loginData.password === '1234' ){
+        const findUtent = users.find(user=> user.email === email && user.password === password)
+        if(findUtent){
+            setUserActive(findUtent.username)
+            localStorage.setItem("json" , true)
+            localStorage.setItem('logout' , true)
             setError('')
-            navigate('/host/vans' , {replace : true})
-            localStorage.setItem("myEmojis" , true)
+            navigate(`${location.state.return}`)
         }else {
             setMessage('Utent not find!')
-            return setError('Utent not find!')
         }
+    }
+    function createNewAccount(){
+        const newUsers = {
+            username : name ,
+            email : email ,
+            password : password
+        }
+        setUsers([...users , newUsers])
+        setUserActive(newUsers.username)
+        localStorage.setItem('json' , true)
+        localStorage.removeItem('logout')
+        navigate(`${location.state.return}`)
     }
     return(
         <div className='login-ctn'>
-            { location.state ? (<h3>{location.state.message}</h3>) : (<p></p>) }
-            { error ? (<h3>{message}</h3>) : (<p></p>) }
+            { location.state ? <h3>{location.state.message}</h3> : <p></p> }
+            <p>email : bob@gmail.com  <br></br> password : 1234 <br></br>   is active</p>
+            { error ? <h3>{message}</h3> : <p></p> }
            <h1 className='login-title'>Sign in to your Account</h1>
            <form action='login' method='post'  className='email-ctn'>
-            <input onChange={handleChange} className='input-email' type='email' name='email' placeholder='Enter your email' />
+            <input onChange={(e)=> setEmail(e.target.value)} className='input-email' type='email' name='email' placeholder='Enter your email' />
            <div className='password-ctn'>
-            <input onChange={handleChange} className='input-password' type='password' name='password' placeholder='Enter your password' />
+            <input onChange={(e)=>setPassword(e.target.value)} className='input-password' type='password' name='password' placeholder='Enter your password' />
+            {createOne && <input onChange={(e)=>setName(e.target.value)} type='text' name='name' placeholder='Enter Your Name' className='input-password' />}
            </div>
            </form>
-            <button onClick={submitData}  className='login-btn'>Log in</button>
+            {createOne ?<button onClick={createNewAccount}  className='login-btn'>Create Account</button>
+             : <button onClick={submitData}  className='login-btn'>Log in</button>}
           
            <div>
-              <h2>Don't have a account ?  <Link>Create one</Link></h2>
+              {createOne ? <h2>Do you have a account ?  <Link state={{return:'/'}} onClick={()=>setCreateOne(false)}>Log in</Link></h2>
+              : <h2>Don't have a account ?  <Link state={{return:'/'}} onClick={()=>setCreateOne(true)}>Create one</Link></h2>}
            </div>
         </div>
     )
