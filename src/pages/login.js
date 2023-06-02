@@ -54,9 +54,9 @@ export default function Login(){
     return(
         <div className='login-ctn'>
             { location.state ? <h3>{location.state.message}</h3> : <p></p> }
-            <p>email : bob@gmail.com  <br></br> password : 1234 <br></br>   is active</p>
+            {!createOne && <h3>email : bob@gmail.com  <br></br> password : 1234 <br></br>   is active</h3>}
             { error ? <h3>{message}</h3> : <p></p> }
-           <h1 className='login-title'>Sign in to your Account</h1>
+           <h1 className='login-title'>{createOne ? 'Create your account' : 'Sign in to your Account'}</h1>
            <form action='login' method='post'  className='email-ctn'>
             <input onChange={(e)=> setEmail(e.target.value)} className='input-email' type='email' name='email' placeholder='Enter your email' />
            <div className='password-ctn'>
