@@ -1,11 +1,10 @@
 import React , { useState , useContext } from 'react'
-import { NavLink , useNavigate } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { Context } from '../context'
 
 export default function Header(){
 
     const {userActive , setUserActive} = useContext(Context)
-    const navigate = useNavigate()
     const [ profileHover , setProfileHover] = useState(false)
     let logout = localStorage.getItem('logout' , false) 
     let username = localStorage.getItem('username')
@@ -14,14 +13,13 @@ export default function Header(){
         localStorage.removeItem('logout')
         localStorage.removeItem('json')
         localStorage.removeItem('username')
-        navigate('/')
     }
     function handlelogOut(){
         if(!logout){
             return <NavLink onMouseEnter={()=>setProfileHover(true)} onMouseLeave={()=>setProfileHover(false)} 
                     className='log-in-link' to={'/login'} state={{return:'/'}} >Log in</NavLink>
         }else {
-            return <NavLink onMouseEnter={()=>setProfileHover(true)} onMouseLeave={()=>setProfileHover(false)}
+            return <NavLink to='/' onMouseEnter={()=>setProfileHover(true)} onMouseLeave={()=>setProfileHover(false)}
                       onClick={logOut} className='log-out-link'>Log out</NavLink>
         }
     }
