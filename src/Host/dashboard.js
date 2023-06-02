@@ -21,8 +21,8 @@ export default function Dashboard(){
            <div className='dash-review-flex'>
             <h1 style={{marginRight:'.5em'}}>Review score</h1>
             <img className='star' src='../images/star.svg'  alt='stella review'/>
-            <h1>5.0</h1>
-            <h1 style={{color:'rgb(22, 22, 22,.6)'}}>/5</h1>
+            <h1 className='five'>5.0</h1>
+            <h1 className='five' style={{color:'rgb(22, 22, 22,.6)'}}>/5</h1>
            </div>
            <Link to='/host/review'>details</Link>
          </div>

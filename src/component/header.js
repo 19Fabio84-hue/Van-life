@@ -28,11 +28,11 @@ export default function Header(){
     return(
         <nav>
             <NavLink className={({isActive}) => isActive ? 'styles' : null} to='/'><img src='./images/logog.png' alt='logo' className='logo' /></NavLink>
-            <div className='link-ctn-small' onMouseEnter={()=>setHover(true)} onMouseLeave={()=> setHover(false)}>
-             <p className={hover ? 'menu-small-hover menu-small' :'menu-small'}> &#9776;</p>
+            <div className='link-ctn-small'  onMouseEnter={()=>setHover(true)} onMouseLeave={()=> setHover(false)}>
+             <p className={hover ? 'menu-small-hover menu-small' :'menu-small'} onClick={()=>setHover(!hover)}> &#9776;</p>
              {hover && <div className={userActive === '' ?'flex-ctn-small' : 'flex-ctn-small-logout'}>
-                        <NavLink  to='/host' state={{return : '/host'}} onClick={()=>setHover(false)}>Host</NavLink>
-                        <NavLink  to='/about' onClick={()=>setHover(false)}>About</NavLink>
+                        <NavLink  to='/host' state={{return : '/host'}} onClick={()=>setHover(!hover)}>Host</NavLink>
+                        <NavLink  to='/about' onClick={()=>setHover(!hover)}>About</NavLink>
                         <NavLink  to='/vans' onClick={()=>setHover(false)} >Vans</NavLink>
                         {userActive === '' ? <NavLink  to='/login' state={{return :'/'}}
                                onClick={()=>setHover(false)}         style={{color:'#e55123'}}>Log in</NavLink>
