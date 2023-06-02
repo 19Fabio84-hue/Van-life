@@ -7,7 +7,7 @@ export default function ContextProvider({children}){
     const [users , setUsers] = useState([{
         username : 'Bob' ,
         email : 'bob@gmail.com',
-        password : '1234'
+        password : 'a234'
     }])
     const data = [
 

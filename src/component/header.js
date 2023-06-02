@@ -13,6 +13,7 @@ export default function Header(){
         localStorage.removeItem('logout')
         localStorage.removeItem('json')
         localStorage.removeItem('username')
+        setHover(false)
     }
     function handlelogOut(){
         if(!logout){
@@ -30,12 +31,13 @@ export default function Header(){
             <div className='link-ctn-small' onMouseEnter={()=>setHover(true)} onMouseLeave={()=> setHover(false)}>
              <p className={hover ? 'menu-small-hover menu-small' :'menu-small'}> &#9776;</p>
              {hover && <div className={userActive === '' ?'flex-ctn-small' : 'flex-ctn-small-logout'}>
-                        <NavLink  to='/host' state={{return : '/host'}}>Host</NavLink>
-                        <NavLink  to='/about'>About</NavLink>
-                        <NavLink  to='/vans' >Vans</NavLink>
-                        {userActive === '' ? <NavLink  to='/login' state={{return :'/'}}>Log in</NavLink>
-                        :<NavLink style={{textDecoration:'none'}} >{userActive}</NavLink> } 
-                         {userActive !== '' && <NavLink onClick={logOut} >Log out</NavLink>} 
+                        <NavLink  to='/host' state={{return : '/host'}} onClick={()=>setHover(false)}>Host</NavLink>
+                        <NavLink  to='/about' onClick={()=>setHover(false)}>About</NavLink>
+                        <NavLink  to='/vans' onClick={()=>setHover(false)} >Vans</NavLink>
+                        {userActive === '' ? <NavLink  to='/login' state={{return :'/'}}
+                               onClick={()=>setHover(false)}         style={{color:'#e55123'}}>Log in</NavLink>
+                        :   <NavLink style={{textDecoration:'none',color:'#E17654'}} >{userActive}</NavLink> } 
+                            {userActive !== '' && <NavLink onClick={logOut} >Log out</NavLink>} 
                        
                      </div>}
             </div>
