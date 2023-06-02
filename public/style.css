@@ -7,6 +7,11 @@ font-family: 'Inter';
 font-style: normal;
 background-color:#FFF7ED;
 }
+@media(max-width:720px){
+    body{
+        overflow-x: hidden
+    }
+}
 nav{
     padding: 25px;
     background-color:#FFF7ED;
@@ -21,6 +26,7 @@ nav > div{
     justify-content: space-around;
     margin-right: 5em;
 }
+
 .logo{
     width: 220px;
     height: 80px;
@@ -657,11 +663,21 @@ i{
  .host-van-title2{
     margin-top: 1em;
  }
+ 
  .host-vans-detail-p{
     font-size: 1.1rem;
  }
  .margin{
     margin-bottom: 5em;
+ }
+ @media(max-width:700px){
+    .params{
+        width: 70%;
+    }.van-rent{
+        width: 100%;
+    }.host-van{
+        font-size: 1.1rem;
+    }
  }
    /* HOST REVIEW  */
    .review-section{
