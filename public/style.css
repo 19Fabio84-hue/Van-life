@@ -7,9 +7,10 @@ font-family: 'Inter';
 font-style: normal;
 background-color:#FFF7ED;
 }
-@media(max-width:720px){
+@media(min-width:20px){
     body{
-        overflow-x: hidden
+        overflow-x: hidden;
+        overflow-y: hidden;
     }
 }
 nav{
@@ -131,6 +132,18 @@ a.styles {
         display:none;
     }.login{
         border-radius: 50px;
+    }.logo{
+        width: 150px;
+        height: 60px;
+    }
+}
+@media(max-width:400px){
+    .link-ctn-small{
+        display: block;
+    }.link-ctn{
+        display:none;
+    }.login{
+        border-radius: 50px;
     }
 }
 .handle-log{
@@ -197,6 +210,11 @@ cursor: pointer;
     }
 }
 @media(max-width:800px){
+    .flex-home{
+        width: 80%;
+    }
+}
+@media(max-width:400px){
     .flex-home{
         width: 80%;
     }
@@ -672,12 +690,15 @@ i{
  }
  @media(max-width:700px){
     .params{
-        width: 70%;
+        width: 100%;
     }.van-rent{
         width: 100%;
     }.host-van{
         font-size: 1.1rem;
     }
+ }
+ .margin-detail{
+    margin-bottom: 5em;
  }
    /* HOST REVIEW  */
    .review-section{

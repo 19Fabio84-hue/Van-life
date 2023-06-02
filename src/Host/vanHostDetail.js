@@ -9,7 +9,7 @@ export default function VanHostDetail(){
     return (
         <>
         {selectedVan.map(x =>(
-            <div  key={x.id}>
+            <div className='margin-detail'  key={x.id}>
             <p className='host-vans-detail-p'><span className='bold'>Name :</span> {x.name}</p>
               <p  className='host-vans-detail-p'><span className='bold'>Price :</span> ${x.price}/day</p>
               <div className='van-rent'>
